@@ -1,10 +1,15 @@
-.forecastOld {
-    margin: 0;
-    padding: .3rem;
-    background-color: #eee;
-    font: 1rem 'Fira Sans', sans-serif;
+.weatherwidget-io{
+  width: 460px;
+  height: 460px;
+  border: 1px solid #c3c3c3;
+  align-content: center;
+  justify-content: center;
 }
 
+.forecast{
+  align-content: center;
+  justify-content: center;
+}
 .forecast > h1,
 .day-forecast {
     margin: .5rem;
@@ -12,8 +17,3 @@
     font-size: 1.2rem;
 }
 
-.forecast {
-  width: 70px;
-  height: 300px;
-  border: 1px solid #c3c3c3;
-}

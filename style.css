@@ -1,4 +1,4 @@
-.forecast {
+.forecastOld {
     margin: 0;
     padding: .3rem;
     background-color: #eee;
@@ -10,4 +10,10 @@
     margin: .5rem;
     padding: .3rem;
     font-size: 1.2rem;
+}
+
+.forecast {
+  width: 70px;
+  height: 300px;
+  border: 1px solid #c3c3c3;
 }

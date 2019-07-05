@@ -7,11 +7,15 @@
 }
 
 .forecast{
+  width: 800px;
+  height: 1200px;
   align-content: center;
   justify-content: center;
 }
 .forecast > h1,
 .day-forecast {
+  width: 800px;
+  height: 1200px;
     margin: .5rem;
     padding: .3rem;
     font-size: 1.2rem;

@@ -10,8 +10,7 @@ pipeline {
     stage('Step 2') {
       steps {
         echo 'Hello I am here'
-        sh '''@NonCPS
-def getChangeString() {
+        sh '''def getChangeString() {
 MAX_MSG_LEN = 100
 def changeString = ""
 
@@ -31,8 +30,8 @@ changeString = " - No new changes"
 }
 return changeString
 }'''
+        }
       }
-    }
 
+    }
   }
-}

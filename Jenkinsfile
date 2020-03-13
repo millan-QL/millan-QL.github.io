@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('error') {
       steps {
-        git(changelog: true, url: 'git@github.com:millan-QL/millan-QL.github.io.git', branch: 'master')
+        sh 'commitChangeset = sh(returnStdout: true, script: \'git diff-tree --no-commit-id --name-status -r HEAD\').trim()'
       }
     }
 

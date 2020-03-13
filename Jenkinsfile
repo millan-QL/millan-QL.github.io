@@ -10,16 +10,8 @@ pipeline {
     stage('Step 2') {
       steps {
         echo 'Hello I am here'
-        sh '''shortCommit = sh(returnStdout: true, script: "git log -n 1 --pretty=format:\'%h\'").trim()
-
-echo "" 
-echo shortCommit
-echo " " 
-echo "shortCommit" 
-echo " " 
-echo $(shortCommit)
-echo " " 
-echo $shortCommit'''
+        sh '''MY_MESSAGE="Hello World"
+echo $MY_MESSAGE'''
       }
     }
 

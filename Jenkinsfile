@@ -6,13 +6,7 @@ pipeline {
         sh '''echo "hello"
 shortCommit=\'sh(returnStdout: true, script: "git log -n 1 --pretty=format:\'%h\'").trim()\'
 echo $shortCommit'''
-        sh '''echo "hello"
-shortCommit=\'git log -n 1 --pretty=format:\'%h\'\'
-echo $shortCommit
-
-
-
-LOG=`git log --oneline --pretty=tformat:"%h %B"`
+        sh '''LOG=\'git log --all --graph --decorate --oneline --simplify-by-decoration\'
 echo $LOG'''
       }
     }

@@ -9,9 +9,11 @@ echo $shortCommit'''
         sh '''echo " "
 echo " ************. "
 echo " "
-LOG=`git log --graph --pretty=format:\'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\' --abbrev-commit`
+LOG=`git log --pretty=oneline`
 echo $LOG
 echo " "
+
+
 
 
 

@@ -3,13 +3,14 @@ pipeline {
   stages {
     stage('Step 1') {
       steps {
-        sh '''echo "  ++++++++++  "
-LOG=`git show :/^Merge --pretty="format:%an %ar %s"`
-echo $LOG
-echo "  ++++++++++  "'''
-        sh '''git show :/^Merge --pretty="format:%an %ar %s"
+        sh 'echo "THIS IS STEP 1"'
+      }
+    }
 
-'''
+    stage('Step 2') {
+      steps {
+        sh '''echo "THIS IS STEP 2"
+git log -3 --format="%h %ad, %s" --date=relative'''
       }
     }
 

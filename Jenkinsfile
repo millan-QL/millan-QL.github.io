@@ -16,8 +16,10 @@ echo $LOG'''
     }
 
 
-    stage("speak") {
+    stage('Step 3') {
+      steps {
         slackSend color: '#BADA55', message: 'Just testing ~ Hello, World!'
+      }
     }
 
   }

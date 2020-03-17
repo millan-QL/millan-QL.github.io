@@ -18,7 +18,7 @@ echo $LOG'''
     stage('notify on slack STEP 3') {
       steps {
         script {
-          slackSend(message: "Hello test", channel: '#T0F3F1QMB', color: 'good', failOnError: true, teamDomain: 'BV8NATMB3', token: 'cXSJNOLxqqp69CO8K2TDHEWQ')
+          slackSend botUser: true, channel: 'Millan Kaul', color: 'green', message: 'test', teamDomain: 'qantasassure'
         }
 
       }

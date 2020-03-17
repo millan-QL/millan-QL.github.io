@@ -3,31 +3,11 @@ pipeline {
   stages {
     stage('Step 1') {
       steps {
-        sh '''echo "hello"
-shortCommit=\'sh(returnStdout: true, script: "git log -n 1 --pretty=format:\'%h\'").trim()\'
-echo $shortCommit'''
-        sh '''echo " "
-echo " ************. "
+        sh '''echo "  --------  "
 echo " "
-LOG=`git log --pretty=oneline`
+LOG=`git log --oneline --decorate`
 echo $LOG
-echo " "
-
-
-
-
-
-'''
-        sh '''echo " "
-echo " ?????? "
-echo " "
-LOG=`git log --date=short --format=\\
-"%C(blue)%h %C(reset)%s %C(magenta)%aN %C(green ul)\\
-%ad%C(reset)"`
-echo $LOG
-echo " "
-
-'''
+echo "  --------  "'''
       }
     }
 

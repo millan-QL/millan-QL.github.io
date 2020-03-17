@@ -23,7 +23,7 @@ agent any
       steps {
         script {
         echo "THIS IS STEP 2"
-          LOG = git log -3 --format Details %ad -by- %an Change  %s --date=relative
+          LOG = git log -3 --format Details %ad %an Change  %s --date=relative
           echo "Running LOG ${LOG} now"
           CUST_VAR = $(LOG)
           CUST_VAR_2 = LOG

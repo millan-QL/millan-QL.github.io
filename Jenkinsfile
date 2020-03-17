@@ -19,7 +19,6 @@ agent any
 
     stage('Step 2') {
       steps {
-
         script {
         echo "THIS IS STEP 2"
           LOG = "git log -3 --format Details :  %ad -by- %an, --: Change :--  %s --date=relative"
@@ -27,14 +26,14 @@ agent any
           env.custom_var = LOG
         }
       }
+    }
 
-      stage('Step 3') {
+    stage('Step 3') {
       steps {
-        
         slackSend color: '#BADA55', message: "[${env.ENV_NAME}] -- Just testing ~ ENV_NAME!" 
         slackSend color: '#BADA55', message: "[${env.LOG}] -- Just testing ~ LOG" 
         slackSend color: '#BADA55', message: "[${env.FOO}] -- Just testing ~ FOO!!" 
         }
       }
-    }
+}
 }

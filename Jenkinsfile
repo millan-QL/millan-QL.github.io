@@ -22,7 +22,7 @@ agent any
 
         script {
         echo "THIS IS STEP 2"
-          LOG = `git log -3 --format="Details :  %ad -by- %an, --: Change :--  %s "  --date=relative`
+          LOG = "git log -3 --format Details :  %ad -by- %an, --: Change :--  %s --date=relative"
           echo "Running LOG ${LOG} now"
           env.custom_var = LOG
         }

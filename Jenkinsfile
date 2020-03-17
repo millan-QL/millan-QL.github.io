@@ -16,8 +16,14 @@ echo " "
 
 
 '''
-        sh '''LOGnew =`git log --pretty=format:"%h - %an, %ar : %s"`
-echo $LOGnew'''
+        sh '''echo " "
+echo " ####### "
+echo " "
+LOG=`git log --pretty=format:"%h - %an, %ar : %s"`
+echo $LOG
+echo " "
+
+'''
       }
     }
 

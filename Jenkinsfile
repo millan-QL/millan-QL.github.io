@@ -2,7 +2,9 @@ pipeline {
   environment {
      FOO = "Testing ENV variable"
      ENV_NAME = "${env.BRANCH_NAME}"
-     LOG = "LOG"
+     LOG = "LOG_env"
+     CUST_VAR = "test"
+     CUST_VAR_2 = "test_2"
    }
   
 
@@ -21,9 +23,10 @@ agent any
       steps {
         script {
         echo "THIS IS STEP 2"
-          LOG = "git log -3 --format Details :  %ad -by- %an, --: Change :--  %s --date=relative"
+          LOG = git log -3 --format Details :  %ad -by- %an, --: Change :--  %s --date=relative
           echo "Running LOG ${LOG} now"
-          env.custom_var = LOG
+          CUST_VAR = $(LOG)
+          CUST_VAR_2 = LOG
         }
       }
     }
@@ -33,6 +36,9 @@ agent any
         slackSend color: '#BADA55', message: "[${env.ENV_NAME}] -- Just testing ~ ENV_NAME!" 
         slackSend color: '#BADA55', message: "[${env.LOG}] -- Just testing ~ LOG" 
         slackSend color: '#BADA55', message: "[${env.FOO}] -- Just testing ~ FOO!!" 
+        slackSend color: '#BADA55', message: "[${env.CUST_VAR}] -- Just testing ~ CUST_VAR!!" 
+        slackSend color: '#BADA55', message: "[${env.CUST_VAR_2}] -- Just testing ~ CUST_VAR_2!!" 
+        
         }
       }
 }

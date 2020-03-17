@@ -10,7 +10,7 @@ pipeline {
     stage('Step 2') {
       steps {
         sh '''echo "THIS IS STEP 2"
-git log -3 --format="%h -:- %ad -:- %an, --:- Change -:--  %s  "  --date=relative'''
+LOG = `git log -3 --format="Details :  %ad -by- %an, --: Change :--  %s  "  --date=relative`'''
       }
     }
 

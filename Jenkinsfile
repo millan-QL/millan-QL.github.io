@@ -15,13 +15,9 @@ echo $LOG'''
       }
     }
 
-    stage('notify on slack STEP 3') {
-      steps {
-        script {
-          slackSend botUser: true, channel: 'Millan Kaul', color: 'green', message: 'test', teamDomain: 'qantasassure'
-        }
 
-      }
+    stage("speak") {
+        slackSend color: '#BADA55', message: 'Just testing ~ Hello, World!'
     }
 
   }

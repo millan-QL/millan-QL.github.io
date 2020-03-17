@@ -7,6 +7,10 @@ pipeline {
 LOG=`git show :/^Merge --pretty="format:%an %ar %s"`
 echo $LOG
 echo "  ++++++++++  "'''
+        sh '''echo "  ++++++++++  "
+git show :/^Merge --pretty="format:%an %ar %s"
+echo "  ++++++++++  "
+'''
       }
     }
 

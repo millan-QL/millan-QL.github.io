@@ -3,6 +3,7 @@ pipeline {
      FOO = "Testing ENV variable"
      ENV_NAME = "${env.BRANCH_NAME}"
      LOG = "LOG_env"
+     LOG_NEW = gitLog()
      CUST_VAR = "test"
      CUST_VAR_2 = "test_2"
    }
@@ -31,13 +32,13 @@ agent any
       }
     }
 
+    def gitLog() {
+       return env.LOG_NEW
+}
+
     stage('Step 3') {
       steps {
-        slackSend color: '#BADA55', message: "[${env.ENV_NAME}] -- Just testing ~ ENV_NAME!" 
-        slackSend color: '#BADA55', message: "[${env.LOG}] -- Just testing ~ LOG" 
-        slackSend color: '#BADA55', message: "[${env.FOO}] -- Just testing ~ FOO!!" 
-        slackSend color: '#BADA55', message: "[${env.CUST_VAR}] -- Just testing ~ CUST_VAR!!" 
-        slackSend color: '#BADA55', message: "[${env.CUST_VAR_2}] -- Just testing ~ CUST_VAR_2!!" 
+        slackSend color: '#BADA55', message: "[${env.LOG_NEW}] -- Just testing ~ LOG_NEW" 
         
         }
       }

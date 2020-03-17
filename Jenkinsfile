@@ -15,5 +15,12 @@ echo $LOG'''
       }
     }
 
+    stage('') {
+      steps {
+        slackSend(failOnError: true, botUser: true, message: '$LOG', baseUrl: 'https://hooks.slack.com/services/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')
+        echo 'THIS IS STEP 3'
+      }
+    }
+
   }
 }

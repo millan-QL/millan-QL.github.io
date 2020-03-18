@@ -1,6 +1,6 @@
 pipeline {
   environment {
-     FOO = "Testing ENV variable"
+     FOO = "1 Testing ENV variable"
      ENV_NAME = "${env.BRANCH_NAME}"
      LOG = "LOG_env"
      LOG_NEW = gitLog()

@@ -31,7 +31,7 @@ pipeline {
     stage('Step 3') {
       steps {
         sh 'echo "THIS IS STEP 3"'
-        slackSend color: '#BADA55', message: 'Hello, World! [${LOG}] and [${env.BRANCH_NAME}] - [${ENV_NAME}] -- [${LOG_NEW}]. and [${LOG}]'
+        slackSend color: '#BADA55', message: 'Hello, World! version is ${awesomeVersion} -- [${LOG}] and [${env.BRANCH_NAME}] - [${ENV_NAME}] -- [${LOG_NEW}]. and [${LOG}]'
       }
     }
 

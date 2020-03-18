@@ -33,7 +33,7 @@ pipeline {
     stage('Step 3') {
       steps {
         sh 'echo "THIS IS STEP 3"'
-        slackSend color: '#BADA55', message: "Version : ${awesomeVersion} | \n Last 3 commits  on branch ${env.BRANCH_NAME} \n \n Changes made ..  | Author | Commets :: \n  ${gitLogs}"
+        slackSend color: '#BADA55', message: "Version : ${awesomeVersion} -on branch - `${env.BRANCH_NAME}` Last 3 commits \n \n *--Changes made ..*  | *--Author--* | *--Commets--* \n  ${gitLogs}"
       }
     }
 

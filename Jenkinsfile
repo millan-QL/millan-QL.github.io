@@ -2,6 +2,7 @@ pipeline {
   environment {
      ENV_NAME = "${env.BRANCH_NAME}"
      LOG_NEW = "LOG_env"
+     TEST = "test"
    }
   agent any
   stages {
@@ -20,6 +21,13 @@ pipeline {
       }
     }
 
+    stage('gitLOG version') {
+      steps {
+        // echo "awesomeVersion: ${awesomeVersion}"
+        TEST = sh 'git log -1 --format=oneline'
+      }
+    }
+
     stage('Step 2') {
       steps {
         sh '''echo "THIS IS STEP 2"
@@ -31,13 +39,7 @@ pipeline {
     stage('Step 3') {
       steps {
         sh 'echo "THIS IS STEP 3"'
-        slackSend color: '#BADA55', message: "Hello, World! version is ${awesomeVersion}  -- BRANCH --  [${env.BRANCH_NAME}] -- ENV NAME --  [${ENV_NAME}] -- LOG NEW -- [${LOG_NEW}]"
-      }
-    }
-
-    stage('output_version') {
-      steps {
-        echo "awesomeVersion: ${awesomeVersion}"
+        slackSend color: '#BADA55', message: "Hello, World! version is ${awesomeVersion}  -- BRANCH NAME --  ${env.BRANCH_NAME} -- LOG NEW -- ${LOG_NEW} ---- and ${TEST}"
       }
     }
 

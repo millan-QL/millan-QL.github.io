@@ -2,7 +2,6 @@ pipeline {
   environment {
      ENV_NAME = "${env.BRANCH_NAME}"
      LOG_NEW = "LOG_env"
-     TEST = "test"
    }
   agent any
   stages {
@@ -11,6 +10,7 @@ pipeline {
       steps {
         script {
           awesomeVersion = sh(returnStdout: true, script: 'echo 0.0.1')
+          TEST = sh(returnStdout: true, script: 'git log -1 --format=oneline')
         }
       }
     }
@@ -18,13 +18,6 @@ pipeline {
     stage('Step 1') {
       steps {
         sh 'echo "THIS IS STEP 1"'
-      }
-    }
-
-    stage('gitLOG version') {
-      steps {
-        // echo "awesomeVersion: ${awesomeVersion}"
-        TEST = sh 'git log -1 --format=oneline'
       }
     }
 
